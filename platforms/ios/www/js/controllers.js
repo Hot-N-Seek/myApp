@@ -1,15 +1,15 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {
+.controller('ProfileCtrl', function($scope) {
 })
 
-.controller('FriendsCtrl', function($scope, Friends) {
-  $scope.friends = Friends.all();
+.controller('PlacesCtrl', function($scope, Places) {
+  $scope.places = Places.all();
 })
 
-.controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
-  $scope.friend = Friends.get($stateParams.friendId);
+.controller('PlaceDetailCtrl', function($scope, $stateParams, Places) {
+  $scope.place = Places.get($stateParams.placeId);
 })
 
-.controller('AccountCtrl', function($scope) {
+.controller('LogOutCtrl', function($scope) {
 });
