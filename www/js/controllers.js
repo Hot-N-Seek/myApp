@@ -1,7 +1,13 @@
 angular.module('starter.controllers', [])
 
-.controller('LandCtrl', function($scope) {
-})
+.controller('LoginController', ['$scope', '$stateParams', 'Login', function($scope, $stateParams, Login) {
+    // Instantiate an object to store your scope data in (Best Practices)
+    $scope.submit = function(){
+      Login.login('a@a.a','123');
+   };
+
+    window.loginData = $scope;
+}])
 
 .controller('DashCtrl', function($scope) {
 })
