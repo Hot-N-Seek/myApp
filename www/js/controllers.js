@@ -1,6 +1,9 @@
 angular.module('starter.controllers', [])
 
-.controller('ProfileCtrl', function($scope) {
+.controller('LandCtrl', function($scope) {
+})
+
+.controller('DashCtrl', function($scope) {
 })
 
 .controller('PlacesCtrl', function($scope, Places) {
@@ -8,8 +11,8 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PlaceDetailCtrl', function($scope, $stateParams, Places) {
-  $scope.place = Places.get($stateParams.placeId);
+  $scope.friend = Places.get($stateParams.placeId);
 })
 
-.controller('LogOutCtrl', function($scope) {
+.controller('LogCtrl', function($scope) {
 });

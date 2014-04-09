@@ -38,9 +38,9 @@
 		7E7966E61810823500FA85AD /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DC1810823500FA85AD /* icon-small.png */; };
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
-		9DDD3F0DA3F34E0FB2A1B9CA /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F352D62D4C4938852E5978 /* CDVLogger.m */; };
-		84191CE82CEF49739540746D /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 102BA441B7E8497E9CB908CB /* CDVDevice.m */; };
-		9C0E4A56466B4376AEE9C915 /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1068E9D3E2284683B91116BA /* CDVStatusBar.m */; };
+		83D6865A20B347BD846B2E2B /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EFAB5D5EE4D464183D2E301 /* CDVLogger.m */; };
+		5E1364AB64504DF58D62A95C /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 200DCCB96E404BEAB21D7FAE /* CDVDevice.m */; };
+		41D5D95ABC544D1681616572 /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FE0C3CB999497EA22FD3EA /* CDVStatusBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,12 +105,12 @@
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "HelloCordova/config.xml"; sourceTree = "<group>"; };
-		86F352D62D4C4938852E5978 /* CDVLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVLogger.m"; path = "org.apache.cordova.console/CDVLogger.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		BD6A610935194DDDB8F19F54 /* CDVLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVLogger.h"; path = "org.apache.cordova.console/CDVLogger.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		102BA441B7E8497E9CB908CB /* CDVDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVDevice.m"; path = "org.apache.cordova.device/CDVDevice.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		CFCEDB4FDF8C4B578011D320 /* CDVDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVDevice.h"; path = "org.apache.cordova.device/CDVDevice.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		1068E9D3E2284683B91116BA /* CDVStatusBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVStatusBar.m"; path = "org.apache.cordova.statusbar/CDVStatusBar.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		76580EB829A34A22AF706EA5 /* CDVStatusBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVStatusBar.h"; path = "org.apache.cordova.statusbar/CDVStatusBar.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		9EFAB5D5EE4D464183D2E301 /* CDVLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVLogger.m"; path = "org.apache.cordova.console/CDVLogger.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		CE108135B603461C8BD260DE /* CDVLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVLogger.h"; path = "org.apache.cordova.console/CDVLogger.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		200DCCB96E404BEAB21D7FAE /* CDVDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVDevice.m"; path = "org.apache.cordova.device/CDVDevice.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		54E7325EABA040D29D22E304 /* CDVDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVDevice.h"; path = "org.apache.cordova.device/CDVDevice.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		B0FE0C3CB999497EA22FD3EA /* CDVStatusBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVStatusBar.m"; path = "org.apache.cordova.statusbar/CDVStatusBar.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		33AB34C7313B43309D164512 /* CDVStatusBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVStatusBar.h"; path = "org.apache.cordova.statusbar/CDVStatusBar.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,12 +231,12 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				86F352D62D4C4938852E5978 /* CDVLogger.m */,
-				BD6A610935194DDDB8F19F54 /* CDVLogger.h */,
-				102BA441B7E8497E9CB908CB /* CDVDevice.m */,
-				CFCEDB4FDF8C4B578011D320 /* CDVDevice.h */,
-				1068E9D3E2284683B91116BA /* CDVStatusBar.m */,
-				76580EB829A34A22AF706EA5 /* CDVStatusBar.h */,
+				9EFAB5D5EE4D464183D2E301 /* CDVLogger.m */,
+				CE108135B603461C8BD260DE /* CDVLogger.h */,
+				200DCCB96E404BEAB21D7FAE /* CDVDevice.m */,
+				54E7325EABA040D29D22E304 /* CDVDevice.h */,
+				B0FE0C3CB999497EA22FD3EA /* CDVStatusBar.m */,
+				33AB34C7313B43309D164512 /* CDVStatusBar.h */,
 			);
 			name = Plugins;
 			path = "HelloCordova/Plugins";
@@ -431,9 +431,9 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
-				9DDD3F0DA3F34E0FB2A1B9CA /* CDVLogger.m in Sources */,
-				84191CE82CEF49739540746D /* CDVDevice.m in Sources */,
-				9C0E4A56466B4376AEE9C915 /* CDVStatusBar.m in Sources */,
+				83D6865A20B347BD846B2E2B /* CDVLogger.m in Sources */,
+				5E1364AB64504DF58D62A95C /* CDVDevice.m in Sources */,
+				41D5D95ABC544D1681616572 /* CDVStatusBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

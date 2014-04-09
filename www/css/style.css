@@ -1,1 +1,23 @@
 /* Empty. Add your own CSS if you like */
+
+#img_wrap {
+    display: inline-block;       
+    position:relative;    
+}
+
+#rescaled_img_wrap {
+    width: 50%;
+}
+#original_img {
+    display: none;
+}
+#rescaled_img {
+    width: 100%;
+    height: 100%;
+}
+#list-margin {
+	width:250px;
+	padding:10px;
+	margin:10px;
+	padding-bottom:2cm;
+}

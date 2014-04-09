@@ -33,17 +33,28 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
     // Each tab has its own nav history stack:
 
-    .state('tab.profile', {
-      url: '/profile',
+
+    .state('tab.dash', {
+      url: '/dash',
       views: {
-        'tab-profile': {
-          templateUrl: 'templates/tab-profile.html',
-          controller: 'ProfileCtrl'
+        'tab-dash': {
+          templateUrl: 'templates/tab-dash.html',
+          controller: 'DashCtrl'
         }
       }
     })
 
-    .state('tab.place', {
+    .state('tab.land', {
+      url: '/land',
+      views: {
+        'tab-land': {
+          templateUrl: 'templates/tab-land.html',
+          controller: 'LandCtrl'
+        }
+      }
+    })
+
+    .state('tab.places', {
       url: '/places',
       views: {
         'tab-places': {
@@ -52,28 +63,29 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-    .state('tab.location-detail', {
-      url: '/location/:locationId',
+
+    .state('tab.place-detail', {
+      url: '/place/:placeId',
       views: {
-        'tab-locations': {
-          templateUrl: 'templates/location-detail.html',
-          controller: 'LocationDetailCtrl'
+        'tab-places': {
+          templateUrl: 'templates/place-detail.html',
+          controller: 'PlaceDetailCtrl'
         }
       }
     })
 
-    .state('tab.logOut', {
-      url: '/logOut',
+    .state('tab.log', {
+      url: '/log',
       views: {
-        'tab-logOut': {
-          templateUrl: 'templates/tab-logOut.html',
-          controller: 'LogOutCtrl'
+        'tab-log': {
+          templateUrl: 'templates/tab-log.html',
+          controller: 'LogCtrl'
         }
       }
     })
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/land');
 
 });
 
