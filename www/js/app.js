@@ -49,7 +49,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {
         'tab-login': {
           templateUrl: 'templates/tab-login.html',
-          controller: 'LoginCtrl'
+          controller: 'HideCtrl'
         }
       }
     })
@@ -70,16 +70,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         'tab-places': {
           templateUrl: 'templates/place-detail.html',
           controller: 'PlaceDetailCtrl'
-        }
-      }
-    })
-
-    .state('tab.log', {
-      url: '/log',
-      views: {
-        'tab-log': {
-          templateUrl: 'templates/tab-log.html',
-          controller: 'LogCtrl'
         }
       }
     })

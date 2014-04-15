@@ -44,12 +44,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
-    .state('tab.land', {
-      url: '/land',
+    .state('tab.login', {
+      url: '/login',
       views: {
-        'tab-land': {
-          templateUrl: 'templates/tab-land.html',
-          controller: 'LandCtrl'
+        'tab-login': {
+          templateUrl: 'templates/tab-login.html',
+          controller: 'HideCtrl'
         }
       }
     })
@@ -74,18 +74,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
-    .state('tab.log', {
-      url: '/log',
-      views: {
-        'tab-log': {
-          templateUrl: 'templates/tab-log.html',
-          controller: 'LogCtrl'
-        }
-      }
-    })
-
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/land');
+  $urlRouterProvider.otherwise('/tab/login');
 
 });
 

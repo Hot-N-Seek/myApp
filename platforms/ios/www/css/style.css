@@ -15,6 +15,10 @@
     width: 100%;
     height: 100%;
 }
+#rescaled_logo {
+    width: 100%;
+    height: 100%;
+}
 #list-margin {
 	width:250px;
 	padding:10px;

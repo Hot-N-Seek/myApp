@@ -1,13 +1,8 @@
 angular.module('starter.controllers', [])
 
-.controller('LoginController', ['$scope', '$stateParams', 'Login', function($scope, $stateParams, Login) {
-    // Instantiate an object to store your scope data in (Best Practices)
-    $scope.submit = function(){
-      Login.login('a@a.a','123');
-   };
+.controller('LoginCtrl', function($scope) {
 
-    window.loginData = $scope;
-}])
+})
 
 .controller('DashCtrl', function($scope) {
 })
@@ -17,8 +12,17 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PlaceDetailCtrl', function($scope, $stateParams, Places) {
-  $scope.friend = Places.get($stateParams.placeId);
+  $scope.place = Places.get($stateParams.placeId);
 })
 
-.controller('LogCtrl', function($scope) {
+.controller('HideCtrl', function($scope) {
+  console.log('HideCtrl');
+  var tabs = document.querySelectorAll('div.tabs')[0];
+  tabs = angular.element(tabs);
+  tabs.css('display', 'none');
+  
+  $scope.$on('$destroy', function() {
+    console.log('HideCtrl destroy');
+    tabs.css('display', '');
+  });
 });
