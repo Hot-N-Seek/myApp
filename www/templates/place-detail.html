@@ -6,41 +6,52 @@
 -->
 <ion-view title="{{place.name}}">
   <ion-content has-header="true" padding="true">
-  	<style type="text/css">
-  		.circleBase {
-    border-radius: 50%;
-    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
-}
-
-.type1 {
-    width: 100px;
-    height: 100px;
-    background: yellow;
-    border: 3px solid red;
-}
-.type2 {
-    width: 50px;
-    height: 50px;
-    background: #ccc;
-    border: 3px solid #000;
-}
-.type3 {
-    width: 300px;
-    height: 300px;
-    background: red;
-    border: 5px solid black;
-}
-
-  	</style>
+  	
   	
 	<div class="row">
-  	<div class="col col-75">Distance ~</div>
-	</div>
-	<div id="map-canvas"></div>
+  	<div class="col col-75">Distance ~
 
           <div id="outputDiv"></div>
           <div id="warmOrCold">no change</div>
-	 <script>
+
+
+  	</div>
+	</div>
+	<div id="map-canvas"></div>
+
+              <script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    // Wait for Cordova to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    var watchID = null;
+
+    // Cordova is ready
+    //
+    function onDeviceReady() {
+        // Throw an error if no update is received every 30 seconds
+        var options = { timeout: 30000 };
+        watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
+    }
+
+    // onSuccess Geolocation
+    //
+    function onSuccess(position) {
+        var element = document.getElementById('geolocation');
+        element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
+                            'Longitude: ' + position.coords.longitude     + '<br />' +
+                            '<hr />'      + element.innerHTML;
+    }
+
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+
     var currentPosition = null;
 
     var distanceToItem = null;
@@ -130,6 +141,6 @@
 
 	google.maps.event.addDomListener(window, 'load', initialize);
 	</script>
-
+	 <!-- <p id="geolocation">Watching geolocation...</p> -->
   </ion-content>
 </ion-view>
