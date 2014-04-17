@@ -7,12 +7,24 @@ angular.module('starter.services', [])
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
-  var places = [
-    { id: 0, name: 'Enchanted Rock' },
-    { id: 1, name: 'Olmos Park' },
-    { id: 2, name: 'The Quarry' },
-    { id: 3, name: 'Travis Park' }
-  ];
+  
+
+
+  var places = [];
+
+  // list.forEach(function(element, index, array) {
+  //   places.push({id:index, name:element[0]});
+  // });
+
+  var count = localStorage.getItem('count');
+  console.log(count);
+  count = parseInt(localStorage.getItem('count'));
+  console.log(count);
+  for(var i = 1; i <= count; i++) {
+    var item = localStorage.getItem('item' + i);
+    var index = localStorage.getItem('id' + i) - 1;
+    places.push({id:index, name:item});
+  }
 
   return {
     all: function() {

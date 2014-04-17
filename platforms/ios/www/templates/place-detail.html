@@ -6,16 +6,21 @@
 -->
 <ion-view title="{{place.name}}">
   <ion-content has-header="true" padding="true">
-  	
-  	
-	<div class="row">
-  	<div class="col col-75">Distance ~
 
-          <div id="outputDiv"></div>
-          <div id="warmOrCold">no change</div>
+  	<div id='background'>
+		<div class="row">
+	  		<div class="col col-75">Distance ~
+
+	          	<div id="outputDiv"></div>
+	          	<p>ft</p>
+	          	<div id="red"></div>
+	          	<div id="warmOrCold">no change</div>
+	          	<div id='latitude'></div>
+	          	<div id='longitude'></div>
 
 
-  	</div>
+	  		</div>
+		</div>
 	</div>
 	<div id="map-canvas"></div>
 
@@ -53,6 +58,12 @@
     }
 
     var currentPosition = null;
+
+    var id = localStorage.getItem('currentId');
+
+    var latitude = localStorage.getItem('latitude' + id);
+
+    var longitude = localStorage.getItem('longitude' + id);
 
     var distanceToItem = null;
     var lastDistance;
@@ -117,8 +128,10 @@
 
 				if (distanceToItem != null && lastDistance != null && (distanceToItem < lastDistance)) {
 					$('#warmOrCold').html('WARMER');
+					$('#background').css('background-color', '#F00');
 				} else if (distanceToItem != null && lastDistance != null && (distanceToItem > lastDistance)) {
 					$('#warmOrCold').html('COLDER');
+					$('#background').css('background-color', '#00F');
 				};
 
 				lastDistance = distanceToItem;
