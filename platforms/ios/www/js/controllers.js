@@ -21,18 +21,19 @@ angular.module('starter.controllers', [])
   $scope.places = Places.all();
 })
 
-.controller('CreateCtrl', function($scope, Create) {
+.controller('CreateCtrl', function($scope) {
     angular.element('#btnPost').on('click', function () {
  
     var params = {
       'name': angular.element('#name').val(),
-      'longitude': angular.element('#longitude').val(),
-      'latitude': angular.element('#latitude').val(),
+      'longitude': localStorage.getItem('currentLong'),
+      'latitude': localStorage.getItem('currentLat'),
+      'user_id': localStorage.getItem('userId'),
     };
   
     angular.element.ajax({
       type: "POST",
-      url: "http://capstone.dev/ajax/post",
+      url: "http://getitred.com/ajax/post/item",
       data: params,
       error: function(jqXHR, strError){
         if (strError == 'timeout')
@@ -51,12 +52,12 @@ angular.module('starter.controllers', [])
  
   function successCallback(data) {
 
-     response = data.Posted;
+     response = data.posted;
 
       if(response) {
         angular.element.ajax({
           type: "POST",
-          url: "http://capstone.dev/ajax/post",
+          url: "http://getitred.com/ajax/post",
           'data': data,
           error: function(jqXHR, strError){
             if (strError == 'timeout')
@@ -70,6 +71,9 @@ angular.module('starter.controllers', [])
         });
 
         window.location="#/tab/dash";
+        alert('Post Successful');
+
+
 
       } else {
 
@@ -84,8 +88,7 @@ angular.module('starter.controllers', [])
   var id = $scope.place.id + 1;
   localStorage.setItem('currentId', id);
   console.log(id);
-  document.getElementById('latitude').innerHTML = localStorage.getItem('latitude' + id);
-  document.getElementById('longitude').innerHTML = localStorage.getItem('longitude' + id);
+
 })
 
 .controller('HideCtrl', function($scope, $location) {
@@ -111,7 +114,7 @@ angular.module('starter.controllers', [])
  
     angular.element.ajax({
       type: "POST",
-      url: "http://capstone.dev/ajax/post",
+      url: "http://getitred.com/ajax/post",
       data: params,
       error: function(jqXHR, strError){
         if (strError == 'timeout')
@@ -139,10 +142,12 @@ angular.module('starter.controllers', [])
   var hidden;
   var found;
   var items;
+  var id;
  
   function successCallback(data) {
  
       response = data.isAuthorized;
+      id = data.user_id;
       usr = data.username;
       found = data.found_count;
       hidden = data.hidden_count;
@@ -151,7 +156,7 @@ angular.module('starter.controllers', [])
       if(response) {
         angular.element.ajax({
           type: "POST",
-          url: "http://capstone.dev/ajax/post",
+          url: "http://getitred.com/ajax/post",
           'data': data,
           error: function(jqXHR, strError){
             if (strError == 'timeout')
@@ -164,6 +169,7 @@ angular.module('starter.controllers', [])
           timeout: 3000
         });
 
+        localStorage.setItem('userId', id);
         localStorage.setItem("usr",usr);
         localStorage.setItem("hidden",hidden);
         localStorage.setItem("found",found);

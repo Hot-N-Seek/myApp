@@ -1,25 +1,34 @@
 <ion-view title="Dashboard" class="bg">
   <ion-content class="has-header padding">
-	
-    <div class="card">
+	<style type="text/css">
+	.bg {
+    background-image: url('img/bg.jpg')
+	}
+	h2	{
+		text-align:center
+	}
+	</style>	
 
-    <div class="col col-center">
-		<h2 id='username'></h2>
-	<hr>
+	<div class="bg">
+	    <div class="card">
 
-	<div class="card">
-	  <div class="item item-text-wrap">
-	    <h3>Found Stashes</h3>
-	    <h4 id='found'></h4>
-	  </div>
-	</div>
+	    <div class="col col-center">
+			<h2 id='username'></h2>
+		<hr>
 
 		<div class="card">
-	<div class="item item-text-wrap">
-	    <h3>Your Staches!</h3>
-	    <h4 id='hidden'></h4>
-	  </div>
-	</div>
+		  <div class="item item-text-wrap">
+		    <h3>Found Stashes</h3>
+		    <h4 id='found'></h4>
+		  </div>
+		</div>
 
+			<div class="card">
+		<div class="item item-text-wrap">
+		    <h3>Your Staches!</h3>
+		    <h4 id='hidden'></h4>
+		  </div>
+		</div>
+	</div>
   </ion-content>
 </ion-view>

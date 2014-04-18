@@ -1,14 +1,55 @@
-<ion-view title="Dashboard" class="bg">
+<ion-view title="Create" class="bg">
   <ion-content class="has-header padding">
+  	<style type="text/css">
+  		.bg {
+    background-image: url('img/bg.jpg')
+	}
+  	</style>
+
+  	<script type="text/javascript">
+
+		document.addEventListener("deviceready", onDeviceReady, false);
+
+    var watchID = null;
+
+    // Cordova is ready
+    //
+    function onDeviceReady() {
+        // Throw an error if no update is received every 30 seconds
+        var options = { timeout: 30000 };
+        watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
+    }
+
+    // onSuccess Geolocation
+    //
+    var latitude;
+    var longitude;
+
+    function onSuccess(position) {
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+    	localStorage.setItem('currentLat', latitude);
+    	localStorage.setItem('currentLong', longitude);
+                            
+    }
+
+     function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+
+
+	</script>
+
   	<h1>Set New Place!</h1>
 
   	<div class="list">
 
 	  <div class="item item-input-inset">
 	    <label class="item-input-wrapper">
-	      <input type="text" placeholder="Email">
+	      <input type="text" id="name" placeholder="Location Name">
 	    </label>
-	    <button class="button button-small">
+	    <button id="btnPost" class="button button-small">
 	      Submit
 	    </button>
 	  </div>
