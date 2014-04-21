@@ -11,7 +11,7 @@
     background-image: url('img/bg.jpg')
     }
     </style>
-	<div class="list card">
+	<!-- <div class="list card">
 
 	    <h2 class="cntr">Distance~</h2>
  	 <div class="item item-avatar" class="center" id="outputDiv"></div>
@@ -19,6 +19,15 @@
 	    <div id="red"></div>
 	</div>
 	<div id="background"></div>
+ -->
+  <div class="list card">
+
+      <h2 class="cntr">Distance~</h2>
+   <div class="item item-avatar" class="center" id="outputDiv"></div>
+      <div id="warmOrCold" class="cntr pad">no change</div>
+      <div id="red"></div>
+  </div>
+  <div id="background"></div>
 
 	<button id="found" class="button button-assertive">
   		Found Item
@@ -32,16 +41,77 @@
 
     // Wait for Cordova to load
     //
-    document.addEventListener("deviceready", onDeviceReady, false);
+    
 
     var watchID = null;
+    var options = null;
+    var currentPosition = null;
+    var itemLocation = null;
+    var id = null;
+    var latitude = null;
+    var longitude = null;
+    var distanceToItem = null;
+    var lastDistance = null;
+    var map = null;
+    var geocoder = null;
+    var bounds = null;
 
     // Cordova is ready
     //
     function onDeviceReady() {
         // Throw an error if no update is received every 30 seconds
-        var options = { timeout: 30000 };
+        options = { timeout: 30000 };
         watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
+
+        currentPosition = null;
+    console.log('currentId in local storage in place-detail' + localStorage.getItem('currentId'));
+    id = null;
+    id = localStorage.getItem('currentId');
+    console.log('variable id in place-detail' + id);
+
+    latitude = localStorage.getItem('latitude' + id);
+    longitude = localStorage.getItem('longitude' + id);
+
+
+    itemLocation = new google.maps.LatLng(latitude, longitude);
+
+    
+  bounds = new google.maps.LatLngBounds();
+
+        calcCurrentDistance();
+
+  setInterval(calcCurrentDistance, 1000);
+
+  var params = {
+      'user_id': localStorage.getItem('user_id'),
+      'item_id': localStorage.getItem('currentId'),
+    };
+
+    console.log(params);
+
+    $('#found').on('click', function () {
+      angular.element.ajax({
+      type: "POST",
+      url: "http://getitred.com/ajax/post/finditem",
+      data: params,
+      error: function(jqXHR, strError){
+        if (strError == 'timeout')
+        {
+          angular.element('#email').val('error');
+        }
+      },
+      success: successCallback,
+      dataType: "json",
+      timeout: 3000
+    });
+      
+    });
+
+    function successCallback (data) {
+      window.location="#/tab/dash";
+    }
+
+  google.maps.event.addDomListener(window, 'load', initialize);
     }
 
     // onSuccess Geolocation
@@ -57,22 +127,7 @@
               'message: ' + error.message + '\n');
     }
 
-    var currentPosition = null;
-
-    var id = localStorage.getItem('currentId');
-
-    var latitude = localStorage.getItem('latitude' + id);
-
-    var longitude = localStorage.getItem('longitude' + id);
-
-    var distanceToItem = null;
-    var lastDistance;
-
-    var itemLocation = new google.maps.LatLng(latitude, longitude);
-
-    var map;
-	var geocoder;
-	var bounds = new google.maps.LatLngBounds();
+    
 
     function initialize() {
 	  var opts = {
@@ -98,8 +153,10 @@
 
 				distanceToItem = google.maps.geometry.spherical.computeDistanceBetween(itemLocation, currentLocation);
 
+        distanceToItem = distanceToItem * 3.28084;
+
 				if (distanceToItem != null) {
-					$('#outputDiv').html(distanceToItem);
+					$('#outputDiv').html(distanceToItem + 'ft');
 				};
 
 				if (distanceToItem != null && lastDistance != null && (distanceToItem < lastDistance)) {
@@ -119,35 +176,11 @@
 		}  
 	}
 
-	calcCurrentDistance();
+	
 
-	setInterval(calcCurrentDistance, 1000);
+  document.addEventListener("deviceready", onDeviceReady, false);
 
-	var params = {
-      'user_id': localStorage.getItem('user_id'),
-      'item_id': localStorage.getItem('currentId'),
-    };
-
-
-    $('#found').on('click', function () {
-    	angular.element.ajax({
-      type: "POST",
-      url: "http://getitred.com/ajax/newitem",
-      data: params,
-      error: function(jqXHR, strError){
-        if (strError == 'timeout')
-        {
-          angular.element('#email').val('error');
-        }
-      },
-      success: successCallback,
-      dataType: "json",
-      timeout: 3000
-    });
-    });
-
-	google.maps.event.addDomListener(window, 'load', initialize);
-
+  
 	</script>
 
 	 <!-- <p id="geolocation">Watching geolocation...</p> -->

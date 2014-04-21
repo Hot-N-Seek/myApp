@@ -53,5 +53,11 @@
     box-shadow: 5px 5px 8px 2px rgba(0, 0, 0, 1); 
 }
 
+#found {
+    margin-top: 20px;
+  top: 50%;
+  left: 35%;
+  right: 35%;
+}
 
 

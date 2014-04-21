@@ -20,10 +20,11 @@ angular.module('starter.services', [])
   console.log(count);
   count = parseInt(localStorage.getItem('count'));
   console.log(count);
-  for(var i = 1; i <= count; i++) {
-    var item = localStorage.getItem('item' + i);
-    var index = localStorage.getItem('id' + i) - 1;
-    places.push({id:index, name:item});
+  for(var i = 0; i < count; i++) {
+    var j = i + 1;
+    var item = localStorage.getItem('item' + j);
+    var index = localStorage.getItem('id' + j);
+    places.push({id:i, name:item, item_id:index});
   }
 
   return {
@@ -32,6 +33,7 @@ angular.module('starter.services', [])
     },
     get: function(placeId) {
       // Simple index lookup
+      localStorage.setItem('currentId', placeId);
       return places[placeId];
     }
   }

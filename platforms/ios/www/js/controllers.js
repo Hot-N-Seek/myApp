@@ -84,10 +84,10 @@ angular.module('starter.controllers', [])
 
 .controller('PlaceDetailCtrl', function($scope, $stateParams, Places) {
   $scope.place = Places.get($stateParams.placeId);
-  console.log($scope.place);
-  var id = $scope.place.id + 1;
-  localStorage.setItem('currentId', id);
-  console.log(id);
+  console.log('scope in controllers' + $scope.place);
+  var item_id = $scope.place.id;
+  
+  console.log('item_id in controllers' + item_id);
 
 })
 
@@ -169,7 +169,7 @@ angular.module('starter.controllers', [])
           timeout: 3000
         });
 
-        localStorage.setItem('userId', id);
+        localStorage.setItem('user_id', id);
         localStorage.setItem("usr",usr);
         localStorage.setItem("hidden",hidden);
         localStorage.setItem("found",found);
